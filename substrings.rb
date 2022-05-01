@@ -4,6 +4,7 @@ dictionary = ["below","down","go","going","horn","how","howdy","it",
 def get_substrings(arr)
   substring_array = []
   combos = []
+  # Add all possible iterations of the words in arr to new array 
   arr.each do |word|
     i = 0
     len = word.length
@@ -22,6 +23,7 @@ def get_substrings(arr)
 end
 
 def substrings(string, words)
+  # downcase letters and remove punctuation, then make array
   arr = string.downcase.gsub(/\W+/, " ").split(" ")
   substrings = get_substrings(arr)
   hash = Hash.new(0)
