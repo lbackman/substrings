@@ -26,9 +26,7 @@ def substrings(string, words)
   substrings = get_substrings(arr)
   hash = Hash.new(0)
   words.each do |w|
-    if substrings.count(w) > 0
-      hash[w] = substrings.count(w)
-    end
+    hash[w] = substrings.count(w) if substrings.count(w) > 0
   end
   puts hash
 end
