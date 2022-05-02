@@ -13,14 +13,6 @@ def get_substrings(arr)
         combos << word[i, len - j - i]
       end
     end
-    # while i < len
-    #   j = len - (len - i)
-    #   while j < len
-    #     combos << word[i, len - j]
-    #     j += 1
-    #   end
-    #   i += 1
-    # end
     substring_array << combos
     combos = []
   end
