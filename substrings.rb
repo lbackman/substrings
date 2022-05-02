@@ -1,21 +1,26 @@
 dictionary = ["below","down","go","going","horn","how","howdy","it",
-              "i","low","own","part","partner","sit"]
+              "i","a","low","own","part","partner","sit"]
 
 def get_substrings(arr)
   substring_array = []
   combos = []
   # Add all possible iterations of the words in arr to new array 
   arr.each do |word|
-    i = 0
+    # i = 0
     len = word.length
-    while i < len
-      j = len - (len - i)
-      while j < len
-        combos << word[i, len - j]
-        j += 1
+    len.times do |i|
+      (len - i).times do |j|
+        combos << word[i, len - j - i]
       end
-      i += 1
     end
+    # while i < len
+    #   j = len - (len - i)
+    #   while j < len
+    #     combos << word[i, len - j]
+    #     j += 1
+    #   end
+    #   i += 1
+    # end
     substring_array << combos
     combos = []
   end
@@ -30,9 +35,9 @@ def substrings(string, words)
   words.each do |w|
     hash[w] = substrings.count(w) if substrings.count(w) > 0
   end
-  puts hash
+  hash
 end
 
 puts "Give a word or phrase to check for substrings."
 str = gets.chomp
-substrings(str, dictionary)
+p substrings(str, dictionary)
